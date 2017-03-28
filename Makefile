@@ -3,3 +3,6 @@ projekt: main.o struktura.h
 
 main.o: main.c
 	gcc main.c -c
+
+test: projekt
+	./projekt board_data/source board_data/output

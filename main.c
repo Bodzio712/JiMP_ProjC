@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     // tutaj tworzymy planszę struktur wys x szer
 
 /*
-    scanner(position);
+    scanner(position, board);
 
     howmany(field **board);
 

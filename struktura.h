@@ -2,7 +2,7 @@
 // Created by Damian on 2017-03-27.
 //
 
-typedef struct {
+ struct field {
     int status;
     int how_many;
-} field;
+};

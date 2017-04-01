@@ -82,7 +82,7 @@ void ile_sasiadow (void) {
 						sx=x-1;
 						sy++;
 					}
-					if(sx<0 || sy<0)
+					if(sx<0 || sy<0 || sx>SZEROKOSC-1 || sy>WYSOKOSC-1)
 						ilosc++;
 					else {
 						if (plansza.status[sx][sy] == 1)
@@ -93,7 +93,9 @@ void ile_sasiadow (void) {
 				}
 			} else {
 			}
-		plansza.sasiedzi[x][y] = ilosc-1;
+		if (plansza.status[x][y] == 1)
+			ilosc--;
+		plansza.sasiedzi[x][y] = ilosc;
 		ilosc=0;
                 }
         }

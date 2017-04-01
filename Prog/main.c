@@ -9,6 +9,10 @@
 #define POZA_PLANSZA 1
 //1-tak, 0-nie
 
+#define SMIERC 6
+#define NARODZINY 3
+#define SAMOTNOSC 2
+
 struct struktura {
 	int status[SZEROKOSC][WYSOKOSC];
 	int sasiedzi[SZEROKOSC][WYSOKOSC];
@@ -18,15 +22,20 @@ struct struktura {
 void skaner (FILE * wspolrzedne);
 void zapis_stanu (FILE * plik_zapisu);
 void ile_sasiadow (void);
+void zmien_stan (void);
 
 int main (int argc, char ** argv) {
 	FILE *wspolrzedne = fopen(argv[1],"r");
 	FILE *plik_zapisu = fopen(argv[2], "w");
 
 	skaner (wspolrzedne);
-	ile_sasiadow();
-	printf("czekpojnt\n");
 
+	int krok = atoi(argv[3]);
+	while (krok >0){
+       		ile_sasiadow();
+		zmien_stan();
+		krok--;
+	
 	int x,y;
 
 //Kntrola wczytywania
@@ -46,9 +55,11 @@ int main (int argc, char ** argv) {
                 }
                 printf("\n");
         }
-
+	printf("\n");
+	}
 
 	zapis_stanu (plik_zapisu);
+	return 0;
 }
 
 void skaner (FILE * wspolrzedne) {
@@ -97,6 +108,21 @@ void ile_sasiadow (void) {
 			ilosc--;
 		plansza.sasiedzi[x][y] = ilosc;
 		ilosc=0;
+                }
+        }
+}
+
+void zmien_stan (void) {
+        int x,y;
+        for (x=0; x<SZEROKOSC; x++) {
+                for (y=0; y<WYSOKOSC; y++) {
+			if (plansza.status[x][y] == 1) {
+				if (plansza.sasiedzi[x][y]>=SMIERC || plansza.sasiedzi[x][y] <= SAMOTNOSC)
+					plansza.status[x][y] = 0;
+			} else {
+                                if (plansza.sasiedzi[x][y]>=NARODZINY)
+                                        plansza.status[x][y] = 1;
+			}
                 }
         }
 }

@@ -34,7 +34,7 @@ int main (int argc, char ** argv) {
 
 	skaner (wspolrzedne);
 
-	int krok = atoi(argv[3]);
+	int krok = atoi(argv[4]);
 	while (krok >0){
        		ile_sasiadow();
 		zmien_stan();

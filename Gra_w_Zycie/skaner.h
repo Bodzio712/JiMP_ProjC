@@ -1,0 +1,1 @@
+void skaner (FILE * wspolrzedne);

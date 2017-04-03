@@ -8,6 +8,8 @@
 //Czy komorki poza plansza sa zywe
 #define POZA_PLANSZA 1
 //1-tak, 0-nie
+#define SZERPIKS 20
+//szerokość komorki w pliku graficznym w pikselach 
 
 #define SMIERC 6
 #define NARODZINY 3
@@ -23,10 +25,12 @@ void skaner (FILE * wspolrzedne);
 void zapis_stanu (FILE * plik_zapisu);
 void ile_sasiadow (void);
 void zmien_stan (void);
+void zapis_graf (FILE * plik_graf);
 
 int main (int argc, char ** argv) {
 	FILE *wspolrzedne = fopen(argv[1],"r");
 	FILE *plik_zapisu = fopen(argv[2], "w");
+	FILE *plik_graf = fopen(argv[3], "wb");
 
 	skaner (wspolrzedne);
 
@@ -59,6 +63,7 @@ int main (int argc, char ** argv) {
 	}
 
 	zapis_stanu (plik_zapisu);
+	zapis_graf(plik_graf);
 	return 0;
 }
 
@@ -125,4 +130,22 @@ void zmien_stan (void) {
 			}
                 }
         }
+}
+
+void zapis_graf(FILE * plik_graf){
+	
+	fprintf(plik_graf, "P1\n%d %d\n",WYSOKOSC * SZERPIKS ,SZEROKOSC * SZERPIKS);
+
+	int x,y,k,p;
+	//iteracje
+
+	for(y=0; y < WYSOKOSC; y++) {
+    		for(p = 0; p < SZERPIKS; p++){
+     			for (x = 0; x < SZEROKOSC; x++) {
+                		for (k=0; k < SZERPIKS; k++)
+                    			fprintf(plik_graf,"%d",plansza.status[x][y]);
+            	
+			}		
+        	}
+    	}
 }

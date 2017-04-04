@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-#include "sruktura.h"
+#include "zmien_stan.h"
+#include "struktura.h"
 
 void zmien_stan (void) {
         int x,y;

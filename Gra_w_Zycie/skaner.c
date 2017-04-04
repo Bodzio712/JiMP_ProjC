@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include "skaner.h"
 #include "struktura.h"
 
 void skaner (FILE * wspolrzedne) {

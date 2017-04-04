@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include "ile_sasiadow.h"
 #include "struktura.h"
 
 void ile_sasiadow (void) {

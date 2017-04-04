@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include "zapis_stanu.h"
 #include "struktura.h"
 
 void zapis_stanu (FILE * plik_zapisu) {

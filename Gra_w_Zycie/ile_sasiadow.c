@@ -25,6 +25,23 @@ void ile_sasiadow (void) {
 					licznik++;
 				}
 			} else {
+				int sx=x, sy=y;
+				if (sx-1>0) {
+					 if (plansza.status[sx-1][sy] == 1)
+                                                 ilosc++;
+				}
+				if (sy-1>0) {
+				         if (plansza.status[sx][sy-1] == 1)
+                                                 ilosc++;
+				}
+                                if (sx+1<SZEROKOSC-1) {
+                                         if (plansza.status[sx+1][sy] == 1)
+                                                 ilosc++;
+				}
+                                if (sy+1<SZEROKOSC-1) {
+                                         if (plansza.status[sx][sy+1] == 1)
+                                                 ilosc++;
+				}				
 			}
 		if (plansza.status[x][y] == 1)
 			ilosc--;

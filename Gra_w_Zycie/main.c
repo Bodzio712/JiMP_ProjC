@@ -9,6 +9,8 @@
 #include "zmien_stan.h"
 #include "ile_sasiadow.h"
 
+//#define TEST
+
 void usage(int argc, char ** argv){
     if (argc > 5) {
         printf("Wprowadzono za duzo argumentow. Aby program dzialal poprawnie:\n");
@@ -44,9 +46,9 @@ int main (int argc, char ** argv) {
        		ile_sasiadow();
 		zmien_stan();
 		krok--;
-	
-	int x,y;
 
+#ifdef TEST	
+	int x,y;
 //Kntrola wczytywania
 	for (x=0; x<SZEROKOSC; x++) {
 		for (y=0; y<WYSOKOSC; y++) {
@@ -65,6 +67,7 @@ int main (int argc, char ** argv) {
                 printf("\n");
         }
 	printf("\n");
+#endif
 	}
 
 	zapis_stanu (plik_zapisu);

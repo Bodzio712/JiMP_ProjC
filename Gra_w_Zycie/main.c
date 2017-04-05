@@ -26,8 +26,9 @@ void usage(int argc, char ** argv){
     if (argc != 5){
         printf("Prodaj 4 parametry: Sciezke do pliku z koordynatami zywych komorek, sciezke do pliku zapisu wyniku w formie tekstowej, sciezke do pliku graficznego z wynikiem oraz ilosc krokow, np:\n");
         printf("./GraWZycie wejcie.txt wyjscie.txt grafika.pbm 4\n");
-    }
-    exit(0);
+    	exit(0);
+	}
+
 }
 
 
@@ -38,6 +39,7 @@ int main (int argc, char ** argv) {
 	FILE *plik_graf = fopen(argv[3], "wb");
 	
 	usage(argc, argv);
+
 	skaner (wspolrzedne);
 
 	int krok = atoi(argv[4]);
